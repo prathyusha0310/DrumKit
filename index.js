@@ -1,9 +1,22 @@
 var noOfDrumButtons=document.querySelectorAll(".drum").length;
-
+//detecting button press
 for(var i=0;i<noOfDrumButtons;i++){
 	document.querySelectorAll(".drum")[i].addEventListener("click",function(){
 		var btnInnerHTML=this.innerHTML;
-		switch(btnInnerHTML){
+		makeSound(btnInnerHTML);
+            	
+		
+	});
+}
+//detecting keyboard press
+
+document.addEventListener("keydown",function(event){
+makeSound(event.key);
+   });
+
+
+function makeSound(key){
+	switch(key){
 			case "w":
              var audio=new Audio("tom-1.mp3");
 		     audio.play();
@@ -32,10 +45,6 @@ for(var i=0;i<noOfDrumButtons;i++){
 		    var audio=new Audio("snare.mp3");
 		    audio.play();
 		    break;
-            
-
-			default:console.log();
-		}
-		
-	});
+		    default:console.log(btnInnerHTML);
+}
 }
